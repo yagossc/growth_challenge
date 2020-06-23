@@ -1,6 +1,7 @@
 CREATE TABLE user_account (
   user_id SERIAL,
   user_name TEXT NOT NULL,
+  user_uname TEXT NOT NULL,
   user_email TEXT,
   address_id INT,
   user_phone TEXT,
