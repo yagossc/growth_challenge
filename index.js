@@ -1,14 +1,25 @@
+// Load the environment config
+const dotenv = require('dotenv'); // FIXME: add a config module
+config = dotenv.config();
+if (config.error) {
+    console.error(config.error);
+    process.exit(1);
+}
+
 // Server module
 const server = require('./api/server');
 
-console.log("Hello Growth");
+// Database module
+const db = require('./store/db');
 
 // define main
 async function main() {
     try {
+        await db.init(process.env.DB_DRIVER);
+        console.log("Connected to the database");
         await server.init();
-        await server.run(8080);
-        console.log("Server up and running. Listenning at 8080");
+        await server.run(process.env.TAPI_PORT);
+        console.log("Server up and running. Listenning at "+process.env.TAPI_PORT);
 
     }catch(err){
         console.log("Error: "+err.message);
