@@ -33,6 +33,12 @@ module.exports.init = function(){
     });
 }
 
+// get returns the active server instance
+module.exports.get = function() {
+    assert.ok(server, "Server not initialized, please call init().");
+    return server;
+}
+
 // run creates the server connection listening
 module.exports.run = function(port) {
     assert.ok(server, "Server not initialized, please call init().");
