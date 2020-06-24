@@ -1,5 +1,5 @@
+const p = require('./posts');
+
 module.exports.setup = function(app) {
-    app.get("/posts", function(req, res){
-        res.json({message: "Hellow Growth!"});
-    });
+    app.get("/posts", p.getPosts);
 }
