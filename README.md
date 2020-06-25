@@ -66,7 +66,7 @@ $ npx webpack
 
 # Running
 If all the dependencies are satisfied, from the project's root, build
-and run the nginx and postgresql containers with:
+and run the nginx container with:
 ```
 $ docker-compose -f docker/docker-compose.yml up --build -d
 ```
