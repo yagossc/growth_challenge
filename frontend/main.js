@@ -50,7 +50,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://192.168.8.2:8080/posts',
+        fetch('http://correct-ip-or-domain:9000/posts',
               {
                   method: "GET",
                   mode: 'cors',
