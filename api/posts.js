@@ -18,10 +18,10 @@ module.exports.getPosts = async function(req, res, next) {
             targetUsers.forEach(user => {
                 if (post.userId == user.id) {
                     let aux = {};
-                    aux.userName = user.name;
+                    aux.author = user.name;
                     aux.company = user.company.name;
-                    aux.postTitle = post.title;
-                    aux.postBody = post.body;
+                    aux.title = post.title;
+                    aux.body = post.body;
 
                     targetPosts.push(aux);
                 }

@@ -11,8 +11,8 @@ const cardStyle = {
     marginBottom: "40px",
     background: "#fff",
     boxShadow: "0 1px 4px rgba(0,0,0,.04)",
-    border: "1px solid rgba(0,0,0,.09)",
-    borderRadius: "3px",
+    border: "3px solid rgba(0,0,0,.09)",
+    borderRadius: "10px",
     cursor: "pointer"
 }
 
@@ -24,7 +24,11 @@ function Posts(props) {
     const posts = props.posts;
     const allPosts =  posts.map(post => (
         <div style={cardStyle} key={post.id}>
-            <h4>{post.title}</h4>
+            <h4><span style={{fontWeight: "bold"}}>Title: </span>{post.title}</h4>
+            <span style={{fontWeight: "bold"}}>User: </span>
+            <span>{post.author}</span>
+            <span style={{fontWeight: "bold"}}> Company: </span>
+            <span>{post.company}</span><br />
             <p>{post.body}</p>
         </div>
     ));
@@ -46,9 +50,10 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://jsonplaceholder.typicode.com/posts',
+        fetch('http://192.168.8.2:8080/posts',
               {
                   method: "GET",
+                  mode: 'cors',
                   headers: {
                       'Content-Type': 'application/json',
                       'Accept': 'application/json'
